@@ -78,12 +78,45 @@ gambia-population-projection/
 └── reports/        ← the final research report / paper drafts
 ```
 
-## Status
+## Status — pipeline complete ✅
 
-🟢 **Phase 0 — Scoping & protocol.** Project framed, methodology decided, data
-landscape verified. See [`docs/00-research-protocol.md`](docs/00-research-protocol.md).
+All phases implemented, reproducible, and committed.
 
-Next: data acquisition (Phase 1).
+| Phase | Module | Result |
+|---|---|---|
+| Data | `src/fetch_wpp.py`, `wpp_data.py` | 31 Gambia series, pinned + checksummed |
+| Life tables | `src/lifetable.py` | reproduces WPP e0(2023)=65.86 exactly |
+| EDA | `src/eda.py` | mortality surface |
+| Classical LC | `src/leecarter.py` | 99.3% fit; backtest 0.65y, 100% coverage |
+| Bayesian LC | `src/bayes_leecarter.py` | PyMC; r̂=1.010; e0(2074)=75.0 [73.8,76.2] |
+| Coherent | `src/coherent.py`, `fetch_refgroup.py` | Li–Lee, e0(2074)=74.8 [73.0,76.6] |
+| Projection engine | `src/projection.py` | validated <1% vs WPP |
+| **Independent projection** | `src/independent_projection.py` | **2074 = 4.66M [4.35–4.98M]** |
+| Validation | `src/validation.py`, `docs/03-validation.md` | backtest + engine checks |
+| Report | `reports/research-report.md`, `policy-brief.md` | write-up + media brief |
+
+### Headline findings
+1. **WPP overstates The Gambia's population ~13%** (2.73M vs the 2024 census's
+   2.42M); re-basing lowers the 2074 projection from 5.35M to **4.66M**.
+2. Lee–Carter fits superbly (99.3%) and backtests well (0.65-yr error).
+3. Classical, Bayesian **and** coherent models all give far tighter e0 intervals
+   than WPP's hierarchical Bayesian → WPP's width is *structural* uncertainty.
+4. **Demographic dividend**: total dependency ratio 77 → ~49; old-age dependency
+   triples (5.4 → 17.8).
+
+### Reproduce
+```bash
+python src/fetch_wpp.py        # data (Gambia)
+python src/fetch_refgroup.py   # reference group
+python src/eda.py              # mortality surface
+python src/leecarter.py        # classical LC + backtest
+python src/bayes_leecarter.py  # Bayesian LC (PyMC)
+python src/coherent.py         # Li–Lee coherent
+python src/projection.py       # engine validation vs WPP
+python src/independent_projection.py   # HEADLINE: census-based projection
+python src/validation.py       # validation summary
+```
+Figures land in `figures/`; processed outputs in `data/processed/`.
 
 ## Reproducibility
 
