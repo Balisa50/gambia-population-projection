@@ -1,0 +1,36 @@
+# Data — raw downloads can be large and have their own licences; keep out of git.
+# Commit small processed/reference tables deliberately if needed.
+data/raw/**
+data/external/**
+!**/.gitkeep
+!data/raw/**/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+env/
+venv/
+*.egg-info/
+
+# Conda
+.conda/
+
+# MCMC traces / large artifacts
+*.nc
+*.netcdf
+arviz_data/
+*.pkl
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Reports build artifacts
+*.aux
+*.log
+*.out
+reports/_build/

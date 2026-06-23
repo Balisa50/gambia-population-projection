@@ -1,0 +1,28 @@
+# Conda environment for the Bayesian mortality/population project.
+# PyMC + PyTensor build cleanly on Windows via conda-forge (avoids the
+# C-compiler pain of a pip-only install).
+#
+#   conda env create -f environment.yml
+#   conda activate gambia-pop
+#
+name: gambia-pop
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12          # PyMC ecosystem is most battle-tested on 3.11/3.12
+  - pymc>=5.16
+  - arviz>=0.18          # Bayesian diagnostics & plots (R-hat, ESS, PPC)
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - statsmodels
+  - scikit-learn
+  - jupyterlab
+  - openpyxl             # read census/WPP spreadsheets
+  - requests             # WPP open API pulls
+  - pyyaml
+  - pip
+# Life tables and the cohort-component projection are implemented from first
+# principles in src/ (no fragile third-party demography lib needed).
