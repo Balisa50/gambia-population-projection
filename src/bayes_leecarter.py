@@ -139,7 +139,7 @@ def main():
     # persist trace (gitignored) + a comparison figure
     traces = ROOT / "data" / "processed" / "traces"; traces.mkdir(exist_ok=True)
     try:
-        az.to_netcdf(idata, traces / f"bayes_lc_{sex}.nc")
+        idata.to_netcdf(str(traces / f"bayes_lc_{sex}.nc"))
     except Exception as e:  # noqa: BLE001
         print("  (trace not saved:", e, ")")
     _make_figure(fc, sex, rhat_max)
