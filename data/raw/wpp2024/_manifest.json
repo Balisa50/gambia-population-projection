@@ -1,0 +1,319 @@
+{
+  "source_repo": "PPgp/wpp2024",
+  "pinned_sha": "2da7768ae64fc74105d3f9e98f9a74d37b62f99a",
+  "raw_base": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/",
+  "country_code": "270",
+  "downloaded_at_utc": "2026-06-23T20:53:34+00:00",
+  "files": [
+    {
+      "file": "mxF.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/mxF.txt",
+      "saved_as": "mxF_GMB.tsv",
+      "n_data_rows": 101,
+      "n_columns": 154,
+      "sha256": "939719180d9ce0f351555547d18b672ffc919a83483f64c8cd7db0614f94c2b4",
+      "bytes": 168281,
+      "group": "mortality"
+    },
+    {
+      "file": "mxM.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/mxM.txt",
+      "saved_as": "mxM_GMB.tsv",
+      "n_data_rows": 101,
+      "n_columns": 154,
+      "sha256": "5ea6b7712c244f975dd5cdac3ac4763b2288eb392a8ea94310854e7719463a08",
+      "bytes": 168210,
+      "group": "mortality"
+    },
+    {
+      "file": "mxB.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/mxB.txt",
+      "saved_as": "mxB_GMB.tsv",
+      "n_data_rows": 101,
+      "n_columns": 154,
+      "sha256": "32d156fd034effcdf966cbbe49246f0b431ae9ea5615cf36bf88962a2c63948e",
+      "bytes": 168205,
+      "group": "mortality"
+    },
+    {
+      "file": "popF.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/popF.txt",
+      "saved_as": "popF_GMB.tsv",
+      "n_data_rows": 101,
+      "n_columns": 78,
+      "sha256": "a9718431554303babda64f7867913f891aa690b4bc54738a66b0e0171aa2b797",
+      "bytes": 46961,
+      "group": "population"
+    },
+    {
+      "file": "popM.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/popM.txt",
+      "saved_as": "popM_GMB.tsv",
+      "n_data_rows": 101,
+      "n_columns": 78,
+      "sha256": "ce914d561a1f9a03e5f1e581552623a115ab6d880b4f0f6d601fe729f2e46525",
+      "bytes": 46678,
+      "group": "population"
+    },
+    {
+      "file": "e0B.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/e0B.txt",
+      "saved_as": "e0B_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 77,
+      "sha256": "18a5f19d96376a2c6ceef8fa9a42a03b1df1771964787b193ae5d65148e8eca3",
+      "bytes": 1004,
+      "group": "e0_estimates"
+    },
+    {
+      "file": "e0F.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/e0F.txt",
+      "saved_as": "e0F_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 77,
+      "sha256": "d72f384511ca71c650b6ccd2f07296c1d321ab0f6e77e13f6f087d56a891677e",
+      "bytes": 1008,
+      "group": "e0_estimates"
+    },
+    {
+      "file": "e0M.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/e0M.txt",
+      "saved_as": "e0M_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 77,
+      "sha256": "894fab48c4178f190c1c76cb29766a66f76b3a167f386b1a207767e1f044a5ec",
+      "bytes": 1008,
+      "group": "e0_estimates"
+    },
+    {
+      "file": "e0Bproj.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/e0Bproj.txt",
+      "saved_as": "e0Bproj_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 79,
+      "sha256": "d01b6518c30931f8e433fd6f4da353672a21d2acffff0b0c15638a60b9e71639",
+      "bytes": 1024,
+      "group": "e0_projection"
+    },
+    {
+      "file": "e0Fproj.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/e0Fproj.txt",
+      "saved_as": "e0Fproj_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 79,
+      "sha256": "5aeb3919ccb1403dcf278e802d419335282ede7e2e675542693cb117efd32d08",
+      "bytes": 1027,
+      "group": "e0_projection"
+    },
+    {
+      "file": "e0Mproj.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/e0Mproj.txt",
+      "saved_as": "e0Mproj_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 79,
+      "sha256": "a90eee0e29b84004e7b84457dbea26725fbdeedfdde9c5604eb96c307fb8ad19",
+      "bytes": 1028,
+      "group": "e0_projection"
+    },
+    {
+      "file": "e0Bproj80l.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/e0Bproj80l.txt",
+      "saved_as": "e0Bproj80l_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 79,
+      "sha256": "3ee26dce52dc897090a63f78a3ad41c9009efb09743bfb26d7b90b59e0e89db0",
+      "bytes": 948,
+      "group": "e0_projection"
+    },
+    {
+      "file": "e0Bproj80u.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/e0Bproj80u.txt",
+      "saved_as": "e0Bproj80u_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 79,
+      "sha256": "7746d8f710862aa456f153cb92989ca5db4b274cff9e89c6d5b9ff5f8f2d0c59",
+      "bytes": 947,
+      "group": "e0_projection"
+    },
+    {
+      "file": "e0Bproj95l.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/e0Bproj95l.txt",
+      "saved_as": "e0Bproj95l_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 79,
+      "sha256": "629d5cf79d022c94f40b462ac66cc6dad1bf77d5836d5c59df18c78f6344f583",
+      "bytes": 945,
+      "group": "e0_projection"
+    },
+    {
+      "file": "e0Bproj95u.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/e0Bproj95u.txt",
+      "saved_as": "e0Bproj95u_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 79,
+      "sha256": "ede002ed7176896411f17d15d0481a69db9d5e629644386c2937b854c486a135",
+      "bytes": 948,
+      "group": "e0_projection"
+    },
+    {
+      "file": "tfr.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/tfr.txt",
+      "saved_as": "tfr_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 77,
+      "sha256": "c3b0fcc67dee709de02641c559545848ced4cb879c73c114a2df554364a5d894",
+      "bytes": 1068,
+      "group": "fertility"
+    },
+    {
+      "file": "tfrprojMed.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/tfrprojMed.txt",
+      "saved_as": "tfrprojMed_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 79,
+      "sha256": "cb2ec8f0cd06a155b4c4602f416022d8bbead3f26fc076205592e62f8041280c",
+      "bytes": 1101,
+      "group": "fertility"
+    },
+    {
+      "file": "percentASFR.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/percentASFR.txt",
+      "saved_as": "percentASFR_GMB.tsv",
+      "n_data_rows": 45,
+      "n_columns": 154,
+      "sha256": "c0d29b5ffa5c318781537840315961772f440bd2ff8a99a17d84aea66bceef7e",
+      "bytes": 61095,
+      "group": "fertility"
+    },
+    {
+      "file": "tfrproj80l.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/tfrproj80l.txt",
+      "saved_as": "tfrproj80l_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 79,
+      "sha256": "8bdc5fe87dace2ff3ce725687dffd1bd48d2e32b543cc3f0a3f000215d99c1c5",
+      "bytes": 868,
+      "group": "fertility"
+    },
+    {
+      "file": "tfrproj80u.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/tfrproj80u.txt",
+      "saved_as": "tfrproj80u_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 79,
+      "sha256": "aa83cccead330638929d142a9810fdc4b9f275c53723cf97f4a97c8d339fb277",
+      "bytes": 872,
+      "group": "fertility"
+    },
+    {
+      "file": "tfrproj95l.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/tfrproj95l.txt",
+      "saved_as": "tfrproj95l_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 79,
+      "sha256": "b6dd671ec3b23c2c06c1b44bab49a8acada99cb9db122a8f0d398dfdeeb8d295",
+      "bytes": 873,
+      "group": "fertility"
+    },
+    {
+      "file": "tfrproj95u.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/tfrproj95u.txt",
+      "saved_as": "tfrproj95u_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 79,
+      "sha256": "52cf00d65af945b536330745518fd7a085c237be2e8ff6376cdd72dcd0071ddb",
+      "bytes": 871,
+      "group": "fertility"
+    },
+    {
+      "file": "sexRatio.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/sexRatio.txt",
+      "saved_as": "sexRatio_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 153,
+      "sha256": "af714b48f6a4c8e38322ae06db3b42971db5ce20a3f688aaf3bc2f393ccfaf5c",
+      "bytes": 1693,
+      "group": "srb"
+    },
+    {
+      "file": "migration.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/migration.txt",
+      "saved_as": "migration_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 77,
+      "sha256": "183827f3c7e0428b7a8c4e62d9766d9ec4e1a446a26720df88282a6024fc5547",
+      "bytes": 886,
+      "group": "migration"
+    },
+    {
+      "file": "migrationprojMed.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/migrationprojMed.txt",
+      "saved_as": "migrationprojMed_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 79,
+      "sha256": "3fb3f9ce70338ea8d69142918a5ecf85f0451386ae1e4f88d3e802121a116074",
+      "bytes": 951,
+      "group": "migration"
+    },
+    {
+      "file": "popFprojMed.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/popFprojMed.txt",
+      "saved_as": "popFprojMed_GMB.tsv",
+      "n_data_rows": 101,
+      "n_columns": 80,
+      "sha256": "c6f10f092b6a90a9d1f9da43e204eadda194a36cc1fa97a945359620c69f3406",
+      "bytes": 53106,
+      "group": "population_projection"
+    },
+    {
+      "file": "popMprojMed.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/popMprojMed.txt",
+      "saved_as": "popMprojMed_GMB.tsv",
+      "n_data_rows": 101,
+      "n_columns": 80,
+      "sha256": "6e065d3a7ac365a2f75fc7e843bca960d6472b53bf37d77e62c6f77f4d225813",
+      "bytes": 52957,
+      "group": "population_projection"
+    },
+    {
+      "file": "deaths.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/deaths.txt",
+      "saved_as": "deaths_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 76,
+      "sha256": "c66cd487202ebcf2e9327a0aadc999c6353f9870b1d0e56897db0a5387631cd6",
+      "bytes": 909,
+      "group": "counts"
+    },
+    {
+      "file": "births.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/births.txt",
+      "saved_as": "births_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 76,
+      "sha256": "03a8658dfaab2f04259b79994ccea3b31c99b5a8f46c6c3ecab03cdfce1a0264",
+      "bytes": 907,
+      "group": "counts"
+    },
+    {
+      "file": "cdr.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/cdr.txt",
+      "saved_as": "cdr_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 76,
+      "sha256": "a4ea1f602ec26fb379c5a059fb63fda6c444b1ad390880bda57a13aac8b4d2f4",
+      "bytes": 892,
+      "group": "counts"
+    },
+    {
+      "file": "cbr.txt",
+      "url": "https://raw.githubusercontent.com/PPgp/wpp2024/2da7768ae64fc74105d3f9e98f9a74d37b62f99a/data-raw/cbr.txt",
+      "saved_as": "cbr_GMB.tsv",
+      "n_data_rows": 1,
+      "n_columns": 76,
+      "sha256": "3fee6467e8144fa837ccada082b4d8fb69805ffb35d641e049c503c9225525bd",
+      "bytes": 919,
+      "group": "counts"
+    }
+  ]
+}

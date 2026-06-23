@@ -74,10 +74,40 @@
 - **WHO Data:** https://data.who.int/countries/270
 - **Our World in Data (Gambia):** https://ourworldindata.org/country/gambia
 
+## WPP 2024 acquisition — reproducible route (DONE)
+
+The standard WPP `/data` API endpoint is **token-gated** (HTTP 401 without a
+generated bearer token). Instead we use the UN Population Division's official
+**`wpp2024` R data package** (`github.com/PPgp/wpp2024`), whose `data-raw/`
+directory publishes the WPP 2024 series as plain tab-separated text — open, and
+exactly reproducible because we **pin to a commit SHA**.
+
+- Repo: `PPgp/wpp2024`  ·  Pinned SHA: `2da7768ae64fc74105d3f9e98f9a74d37b62f99a` (main @ 2025-06-24)
+- Fetcher: [`src/fetch_wpp.py`](../src/fetch_wpp.py) — streams each file, keeps
+  only The Gambia (country_code **270**), writes `data/raw/wpp2024/*_GMB.tsv` +
+  `_manifest.json` (with per-file SHA-256). Re-run with `python src/fetch_wpp.py`.
+- Loader/reshaper: [`src/wpp_data.py`](../src/wpp_data.py) (wide → tidy long).
+- Got 31/31 files: m(x,t) single-age 1950–2100 (F/M/Both); population by single
+  age 1949–2023 (F/M); e0 estimates + UN probabilistic projection (median +
+  80/95% PI); TFR + %ASFR + projections; SRB; migration; UN projected population
+  by age (medium); deaths/births/CDR/CBR.
+
+### First integrity + triangulation findings (from `python src/wpp_data.py`)
+- m(x,t) fully populated (101 ages × 151 years). Infant m(0): 0.164 (1950) →
+  0.030 (2023). e0: 31.2 (1950) → 65.9 (2023).
+- UN probabilistic e0: 2050 = 70.2 [62.4, 77.3]; 2074 = 73.2 [63.5, 83.4].
+- **Population gap (a key finding):** WPP 2023 ≈ **2,728,905** vs 2024 Census
+  ≈ **2,422,712** → WPP is ~**+12.6%** higher. WPP also exceeds every historical
+  Gambian census (1973/1983/1993/2003/2013). WPP 2024 predates the new census;
+  the projection must reconcile its **jump-off** to the census base (allowing for
+  census under-enumeration). This is exactly the kind of result the thesis exists
+  to surface.
+
 ## Download log
 
 | Date | Source | File(s) | Saved to | Notes |
 |---|---|---|---|---|
-| _pending_ | WPP 2024 | life tables, pop, fertility (GMB) | `data/raw/wpp2024/` | Phase 1 |
-| _pending_ | GBoS 2024 PHC | age×sex tables | `data/raw/census2024/` | Phase 1 |
-| _pending_ | DHS | FR289, 2019–20 | `data/raw/dhs/` | Phase 1 |
+| 2026-06-23 | WPP 2024 (`PPgp/wpp2024` @ `2da7768`) | 31 GMB series | `data/raw/wpp2024/` | ✅ via `src/fetch_wpp.py` |
+| _pending_ | GBoS 2024 PHC | age×sex tables (exact totals) | `data/raw/census2024/` | confirm 2,422,712 + single-age base |
+| _pending_ | DHS | FR289, 2019–20 | `data/raw/dhs/` | child + adult mortality anchors |
+| _pending_ | HDSS | Farafenni/Basse life tables | `data/raw/hdss/` | digitise from papers (validation) |

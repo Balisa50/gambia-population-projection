@@ -1,9 +1,14 @@
 # Data — raw downloads can be large and have their own licences; keep out of git.
 # Commit small processed/reference tables deliberately if needed.
-data/raw/**
-data/external/**
+# Raw downloads are ignored by default (large, own licences), BUT we commit the
+# small Gambia WPP extracts so the repo is self-contained and reproducible.
+data/raw/*
+data/external/*
 !**/.gitkeep
-!data/raw/**/.gitkeep
+!data/raw/wpp2024/
+data/raw/wpp2024/*
+!data/raw/wpp2024/*.tsv
+!data/raw/wpp2024/_manifest.json
 
 # Python
 __pycache__/
