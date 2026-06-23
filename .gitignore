@@ -9,6 +9,10 @@ data/external/*
 data/raw/wpp2024/*
 !data/raw/wpp2024/*.tsv
 !data/raw/wpp2024/_manifest.json
+!data/raw/wpp2024_refgroup/
+data/raw/wpp2024_refgroup/*
+!data/raw/wpp2024_refgroup/*.tsv
+!data/raw/wpp2024_refgroup/_refgroup.json
 
 # Python
 __pycache__/
