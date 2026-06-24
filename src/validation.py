@@ -12,6 +12,7 @@ tables and are listed as the next data tasks in docs/03-validation.md.
 from __future__ import annotations
 from pathlib import Path
 import numpy as np
+import figstyle  # noqa: F401  (applies dark, transparent figure style on import)
 import wpp_data as w
 from leecarter import e0_from_mx, backtest
 
@@ -40,7 +41,7 @@ def main():
     f, ax = plt.subplots(figsize=(7.5, 4.5))
     ax.fill_between(bt.year, bt.e0_lo95, bt.e0_hi95, alpha=.25, color="C0", label="forecast 95% PI")
     ax.plot(bt.year, bt.e0_med, color="C0", label="forecast median")
-    ax.plot(bt.year, bt.e0_actual, "o-", color="black", ms=4, label="actual (WPP)")
+    ax.plot(bt.year, bt.e0_actual, "o-", color=figstyle.FG, ms=4, label="actual (WPP)")
     ax.set_title("Backtest — fit ≤2010, predict 2011–2023 (The Gambia, e0)")
     ax.set_xlabel("year"); ax.set_ylabel("e0 (years)"); ax.legend()
     f.tight_layout(); f.savefig(FIG / "validation_backtest.png", dpi=130); plt.close(f)

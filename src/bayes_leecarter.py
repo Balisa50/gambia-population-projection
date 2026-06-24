@@ -33,6 +33,7 @@ import pymc as pm
 import pytensor.tensor as pt
 import arviz as az
 
+import figstyle  # noqa: F401  (applies dark, transparent figure style on import)
 import wpp_data as w
 from leecarter import e0_from_mx
 
@@ -152,7 +153,7 @@ def _make_figure(fc: pd.DataFrame, sex: str, rhat_max: float) -> None:
     import matplotlib.pyplot as plt
     e0_hist = w.load_series("e0B_GMB.tsv", "e0")
     f, ax = plt.subplots(figsize=(8, 4.5))
-    ax.plot(e0_hist.year, e0_hist.e0, color="black", lw=1.4, label="WPP estimates (1950-2023)")
+    ax.plot(e0_hist.year, e0_hist.e0, color=figstyle.FG, lw=1.4, label="WPP estimates (1950-2023)")
     ax.plot(fc.year, fc.e0_med, color="C3", label="Bayesian LC (median)")
     ax.fill_between(fc.year, fc.e0_lo95, fc.e0_hi95, alpha=0.20, color="C3", label="95% credible")
     ax.fill_between(fc.year, fc.e0_lo80, fc.e0_hi80, alpha=0.30, color="C3")

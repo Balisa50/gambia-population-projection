@@ -22,6 +22,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+import figstyle  # noqa: F401  (applies dark, transparent figure style on import)
 import wpp_data as w
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -238,7 +239,7 @@ def _make_figures(fit: LeeCarterFit, fc: pd.DataFrame) -> None:
     e0_hist = np.array([e0_from_mx(fit.ages, np.exp(fit.ax + fit.bx * k), "both")[0]
                         for k in fit.kt])
     f, ax = plt.subplots(figsize=(8, 4.5))
-    ax.plot(fit.years, e0_hist, color="black", label="fitted (1950-2023)")
+    ax.plot(fit.years, e0_hist, color=figstyle.FG, label="fitted (1950-2023)")
     ax.plot(fc.year, fc.e0_med, color="C0", label="LC forecast (median)")
     ax.fill_between(fc.year, fc.e0_lo95, fc.e0_hi95, alpha=0.2, color="C0", label="95% PI")
     ax.fill_between(fc.year, fc.e0_lo80, fc.e0_hi80, alpha=0.3, color="C0")

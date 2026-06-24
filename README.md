@@ -1,131 +1,110 @@
-# The Gambia 2074 — Bayesian Mortality & Population Projection
+# The Gambia 2074: a population projection built on the new census
 
-**An independent, fully-reproducible probabilistic projection of The Gambia's
-population to 2074, built on the 2024 Census and four decades of demographic
-surveillance, using the Bayesian methodology adopted by the UN Population
-Division.**
+An independent forecast of The Gambia's population out to 2074. It is built on
+the 2024 census, it uses the same mortality methods the UN relies on, and it
+comes with honest uncertainty ranges. Everything here runs from public data, so
+anyone can check it.
 
-> Final-year research project · Statistics, KNUST · Abdoulie Balisa
+> Final-year research project. BSc Statistics, KNUST. Abdoulie Balisa.
+> Read the plain-language write-up: https://balisa50.github.io/research/gambia-2074
 
 ---
 
-## The one-line pitch
+## What this is
 
-> *"I produced the first independent, uncertainty-quantified population
-> projection for The Gambia off the new 2024 Census — fitting a Bayesian
-> Lee–Carter mortality model with PyMC, extending it with the Li–Lee coherent
-> method, and benchmarking against the UN's own Bayesian hierarchical approach.
-> The result is a 50-year projection of population, age structure, and
-> dependency ratios with full credible intervals — the numbers a country needs
-> to plan schools, jobs, pensions and clinics."*
+The Gambia has no working death-registration system. Most deaths are never
+recorded, so the country does not appear in the
+[Human Mortality Database](https://www.mortality.org/), and its future
+population is mostly guesswork. The only figures around come from the UN, and
+those were finished before the country ran its first digital census in 2024. So
+I rebuilt the forecast from scratch on the census, and checked it against the
+UN's own numbers.
 
-## Why this project
+The interesting part is the constraint. You cannot just fit a mortality model to
+a country with no death data and call it a day. So the real question became this:
+how do you build a credible, uncertainty-aware projection when the data is thin,
+and how much does the answer depend on which method you pick?
 
-The Gambia has **no complete civil/vital registration system**, so it is absent
-from the [Human Mortality Database](https://www.mortality.org/). Naively fitting
-a mortality model to such a country is indefensible. This project's contribution
-is to confront that limitation honestly and turn it into the research question:
-**how do you build a credible, uncertainty-aware population projection for a
-data-sparse country, and how much do the answers depend on the method?**
+## What I found
 
-What makes The Gambia uniquely tractable:
+1. **The UN is about 13% too high.** It puts The Gambia at 2.73M in 2023; the
+   2024 census counted about 2.42M. Re-basing on the census brings the 2074
+   projection down from 5.35M to **4.66M** (range 4.35 to 4.98M).
+2. **Mortality has improved a lot, and the model captures it.** Life expectancy
+   rose from 31 years in 1950 to 66 in 2023. Trained only on data up to 2010, the
+   model predicted 2011 to 2023 with about 0.65 years of error.
+3. **All three methods give tighter ranges than the UN.** That gap is a finding
+   in itself. The UN's wide band reflects long-run structural uncertainty that
+   simple trend models tend to miss.
+4. **The country is entering its demographic dividend.** The dependency ratio
+   falls from 77 to 49, even as the number of older people roughly triples.
 
-- **Health & Demographic Surveillance Systems (HDSS):** Farafenni (since **1981**)
-  and Basse (since **2007**) — rare multi-decade empirical mortality data with
-  cause of death by verbal autopsy.
-- **A brand-new 2024 Census** (2.4M people; first fully digital census) giving a
-  fresh base population.
-- **DHS surveys** (2013, 2019–20) for child and adult mortality.
-- **UN WPP 2024** reconstructed single-age series and an official projection to
-  benchmark against.
+## The data
 
-## Methodology in one diagram
+- UN WPP 2024 single-age series, plus the UN's official projection to compare against.
+- The 2024 census (about 2.42M, the first fully digital one) for the base population.
+- DHS surveys (2013 and 2019-20) for child and adult mortality.
+- The Farafenni (running since 1981) and Basse (since 2007) surveillance sites,
+  rare long-run mortality data, kept for validation.
 
-```
-Data triangulation                 Mortality model              Projection
-(census, DHS, HDSS, WPP)      (Bayesian, with uncertainty)   (cohort-component)
-        │                              │                            │
-        ▼                              ▼                            ▼
- reconstructed kx,t  ──►  Bayesian Lee–Carter (PyMC, MCMC)  ──►  Leslie-matrix
- age-specific rates       + Li–Lee coherent (W. Africa group)    projection to 2074
-        │                              │                            │
-        │                  validated by: backtest (≤2010→2023),     ▼
-        │                  HDSS life tables, GBD cross-check    population by age/sex
-        └──────────────────────────────┴──────────────►  + 90% credible intervals
-                                                          → dependency ratios,
-                                                            school-age, working-age,
-                                                            elderly populations
-        benchmark ↑ : UN WPP official Bayesian projection (bayesPop/bayesLife)
-```
-
-## Repository structure
+## How it works
 
 ```
-gambia-population-projection/
-├── README.md                 ← you are here
-├── docs/
-│   ├── 00-research-protocol.md   ← full proposal: methodology, data, lit, plan
-│   ├── 01-data-sources.md        ← exact sources, URLs, access notes, licences
-│   └── 02-literature.md          ← annotated bibliography
-├── data/
-│   ├── raw/        ← downloaded source files (never edited)
-│   ├── processed/  ← cleaned, analysis-ready tables
-│   └── external/   ← reference data (e.g. WPP comparison series)
-├── src/            ← reusable Python modules (data, models, projection, viz)
-├── notebooks/      ← exploratory + reproducible analysis notebooks
-├── references/     ← PDFs and the .bib bibliography
-├── figures/        ← generated charts
-└── reports/        ← the final research report / paper drafts
+Data (census, DHS, surveillance, UN WPP)
+   -> age-specific death rates m(x,t)
+   -> mortality model, three ways:
+        classical Lee-Carter (SVD baseline)
+        Bayesian Lee-Carter (PyMC, with uncertainty)
+        Li-Lee coherent (forecast alongside West-African neighbours)
+   -> probabilistic life tables and life expectancy
+   -> cohort-component (Leslie) projection, re-based on the 2024 census
+   -> population by age and sex to 2074, with credible ranges
+   -> dependency ratios, working-age and school-age populations
+Checked against: a held-out backtest, and the UN's own projection (matched to 1%).
 ```
 
-## Status — pipeline complete ✅
+## Reproduce it
 
-All phases implemented, reproducible, and committed.
-
-| Phase | Module | Result |
-|---|---|---|
-| Data | `src/fetch_wpp.py`, `wpp_data.py` | 31 Gambia series, pinned + checksummed |
-| Life tables | `src/lifetable.py` | reproduces WPP e0(2023)=65.86 exactly |
-| EDA | `src/eda.py` | mortality surface |
-| Classical LC | `src/leecarter.py` | 99.3% fit; backtest 0.65y, 100% coverage |
-| Bayesian LC | `src/bayes_leecarter.py` | PyMC; r̂=1.010; e0(2074)=75.0 [73.8,76.2] |
-| Coherent | `src/coherent.py`, `fetch_refgroup.py` | Li–Lee, e0(2074)=74.8 [73.0,76.6] |
-| Projection engine | `src/projection.py` | validated <1% vs WPP |
-| **Independent projection** | `src/independent_projection.py` | **2074 = 4.66M [4.35–4.98M]** |
-| Validation | `src/validation.py`, `docs/03-validation.md` | backtest + engine checks |
-| Report | `reports/research-report.md`, `policy-brief.md` | write-up + media brief |
-
-### Headline findings
-1. **WPP overstates The Gambia's population ~13%** (2.73M vs the 2024 census's
-   2.42M); re-basing lowers the 2074 projection from 5.35M to **4.66M**.
-2. Lee–Carter fits superbly (99.3%) and backtests well (0.65-yr error).
-3. Classical, Bayesian **and** coherent models all give far tighter e0 intervals
-   than WPP's hierarchical Bayesian → WPP's width is *structural* uncertainty.
-4. **Demographic dividend**: total dependency ratio 77 → ~49; old-age dependency
-   triples (5.4 → 17.8).
-
-### Reproduce
 ```bash
-python src/fetch_wpp.py        # data (Gambia)
-python src/fetch_refgroup.py   # reference group
-python src/eda.py              # mortality surface
-python src/leecarter.py        # classical LC + backtest
-python src/bayes_leecarter.py  # Bayesian LC (PyMC)
-python src/coherent.py         # Li–Lee coherent
-python src/projection.py       # engine validation vs WPP
-python src/independent_projection.py   # HEADLINE: census-based projection
-python src/validation.py       # validation summary
+python src/fetch_wpp.py              # UN data for The Gambia
+python src/fetch_refgroup.py         # West-African reference group
+python src/eda.py                    # mortality surface
+python src/leecarter.py              # classical model + backtest
+python src/bayes_leecarter.py        # Bayesian model (PyMC)
+python src/coherent.py               # Li-Lee coherent model
+python src/projection.py             # engine, validated against the UN
+python src/independent_projection.py # the headline: census-based projection
+python src/validation.py             # validation summary
 ```
-Figures land in `figures/`; processed outputs in `data/processed/`.
 
-## Reproducibility
+Figures land in `figures/`, processed tables in `data/processed/`.
 
-Every figure and number in the final report will be regenerable from raw public
-data by running the pipeline end-to-end. Modeling uses a pinned conda
-environment (PyMC builds cleanly on Windows via conda-forge).
+## Repository
 
-## Licence & data governance
+```
+docs/    research protocol, data sources, literature, validation notes
+src/     Python modules: data, life tables, the three models, the projection
+data/    raw downloads (Gambia extracts committed), processed tables
+figures/ generated charts
+reports/ the full technical report and a plain-language policy brief
+```
 
-Code: MIT. Data: each source retains its own licence (see
+## Running it
+
+System Python 3.12 or 3.13 with numpy, pandas, scipy, matplotlib, plus
+`pip install pymc arviz` for the Bayesian model. PyMC samples fine without a C
+compiler (just slower). The data fetch is pinned to a specific commit of the UN
+team's data package, so re-running gives the exact same inputs.
+
+## What is still open
+
+I have not yet compared the model against the published life tables from the
+Farafenni and Basse sites, or against the Global Burden of Disease estimates.
+Both need data I have to extract by hand, so they are listed as honest next steps
+rather than skipped quietly. See [`docs/03-validation.md`](docs/03-validation.md).
+
+## Licence and data
+
+Code is MIT. Each data source keeps its own licence (see
 [`docs/01-data-sources.md`](docs/01-data-sources.md)). No restricted microdata is
-committed to this repository.
+in this repository.

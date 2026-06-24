@@ -9,6 +9,7 @@ Produces the two views a mortality analyst always wants first:
 from __future__ import annotations
 from pathlib import Path
 import numpy as np
+import figstyle  # noqa: F401  (applies dark, transparent figure style on import)
 import wpp_data as w
 
 ROOT = Path(__file__).resolve().parents[1]

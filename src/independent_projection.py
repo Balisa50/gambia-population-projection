@@ -23,6 +23,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+import figstyle  # noqa: F401  (applies dark, transparent figure style on import)
 import wpp_data as w
 from leecarter import fit_lee_carter, forecast_kt, _a0_coale_demeny
 

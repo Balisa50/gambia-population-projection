@@ -22,6 +22,7 @@ import numpy as np
 import pandas as pd
 
 from leecarter import e0_from_mx, fit_lee_carter, forecast_e0
+import figstyle  # noqa: F401  (applies dark, transparent figure style on import)
 import wpp_data as w
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -133,7 +134,7 @@ def main():
     m = p.merge(lo, on="year", suffixes=("", "_lo")).merge(hi, on="year", suffixes=("", "_hi"))
     m = m[m.year <= 2074]
     f, ax = plt.subplots(figsize=(8.5, 4.8))
-    ax.plot(e0h.year, e0h.e0, color="black", lw=1.3, label="WPP estimates")
+    ax.plot(e0h.year, e0h.e0, color=figstyle.FG, lw=1.3, label="WPP estimates")
     ax.fill_between(m.year, m.e0_lo, m.e0_hi, alpha=0.12, color="C0", label="WPP 95% PI")
     ax.plot(m.year, m.e0, color="C0", ls="--", label="WPP median")
     ax.fill_between(sp.year, sp.e0_lo95, sp.e0_hi95, alpha=0.15, color="C2", label="single-pop LC 95%")

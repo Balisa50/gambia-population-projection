@@ -25,6 +25,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+import figstyle  # noqa: F401  (applies dark, transparent figure style on import)
 import wpp_data as w
 from lifetable import period_life_table
 
@@ -246,7 +247,7 @@ def _figures(ages, rows, ours, wpp_tot, BASE, END):
     # (c) dependency ratios over time
     axs[2].plot(deps.year, deps.child, label="child (<15)")
     axs[2].plot(deps.year, deps.old, label="old (65+)")
-    axs[2].plot(deps.year, deps.total, color="black", lw=1.6, label="total")
+    axs[2].plot(deps.year, deps.total, color=figstyle.FG, lw=1.6, label="total")
     axs[2].set_title("Dependency ratios (per 100 working-age)"); axs[2].set_xlabel("year"); axs[2].legend(fontsize=8)
 
     fig.suptitle("The Gambia population projection to 2074 (engine validated on WPP inputs)")
