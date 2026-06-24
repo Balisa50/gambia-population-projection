@@ -2,7 +2,7 @@
 
 ### A Bayesian Lee-Carter approach anchored on the 2024 census
 
-**Abdoulie Balisa. BSc Statistics, KNUST. Final-year research project.**
+**Abdoulie Balisa. BSc Statistics, KNUST. An independent research project.**
 *Reproducible from the public pipeline in this repository.*
 
 ---

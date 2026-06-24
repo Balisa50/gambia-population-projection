@@ -5,7 +5,7 @@ the 2024 census, it uses the same mortality methods the UN relies on, and it
 comes with honest uncertainty ranges. Everything here runs from public data, so
 anyone can check it.
 
-> Final-year research project. BSc Statistics, KNUST. Abdoulie Balisa.
+> An independent research project. BSc Statistics, KNUST. Abdoulie Balisa.
 > Read the plain-language write-up: https://balisa50.github.io/research/gambia-2074
 
 ---

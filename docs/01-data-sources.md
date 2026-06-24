@@ -100,8 +100,8 @@ exactly reproducible because we **pin to a commit SHA**.
   ≈ **2,422,712** → WPP is ~**+12.6%** higher. WPP also exceeds every historical
   Gambian census (1973/1983/1993/2003/2013). WPP 2024 predates the new census;
   the projection must reconcile its **jump-off** to the census base (allowing for
-  census under-enumeration). This is exactly the kind of result the thesis exists
-  to surface.
+  census under-enumeration). This is exactly the kind of result this project
+  exists to surface.
 
 ## Download log
 
