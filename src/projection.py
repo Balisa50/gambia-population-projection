@@ -6,7 +6,7 @@ schedules of mortality, fertility, sex-ratio-at-birth and net migration, it roll
 the population forward one year at a time. The same machinery the UN Population
 Division uses for WPP.
 
-Design choice — VALIDATE FIRST: ``main()`` runs the engine on WPP's *own* inputs
+Design choice - VALIDATE FIRST: ``main()`` runs the engine on WPP's *own* inputs
 (mortality m(x,t), TFR, %ASFR, SRB, net migration) and checks that it reproduces
 WPP's published projected population. Only an engine that reconstructs the
 benchmark can be trusted to carry our independent (Lee-Carter / Bayesian)
@@ -211,7 +211,7 @@ def main():
 
     dr = dependency_ratios(ages, rows[-1][1], rows[-1][2])
     print(f"\n2074 (our engine, WPP inputs): total pop {ours[END]:,.0f}")
-    print(f"  dependency ratios — child {dr['child']:.1f}, old {dr['old']:.1f}, total {dr['total']:.1f}")
+    print(f"  dependency ratios - child {dr['child']:.1f}, old {dr['old']:.1f}, total {dr['total']:.1f}")
     print(f"  (2023 base) ", dependency_ratios(ages, base_f, base_m))
 
     _figures(ages, rows, ours, wpp_tot, BASE, END)
