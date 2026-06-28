@@ -29,7 +29,7 @@ def _year_columns(df: pd.DataFrame) -> list[str]:
 def _read_wide(fname: str) -> pd.DataFrame:
     path = RAW / fname
     if not path.exists():
-        raise FileNotFoundError(f"{path} — run `python src/fetch_wpp.py` first.")
+        raise FileNotFoundError(f"{path} - run `python src/fetch_wpp.py` first.")
     return pd.read_csv(path, sep="\t")
 
 
@@ -81,7 +81,7 @@ def load_series(fname: str, value_name: str) -> pd.DataFrame:
 
 def _verify() -> None:
     """Print an integrity + triangulation summary on the fetched data."""
-    print("=== WPP 2024 — The Gambia: data integrity check ===\n")
+    print("=== WPP 2024 - The Gambia: data integrity check ===\n")
 
     mxB = load_mx("both")
     print(f"m(x,t): ages {mxB.age.min()}-{mxB.age.max()}, "
@@ -114,7 +114,7 @@ def _verify() -> None:
     # confirmed from the GBoS primary report (~2.4M per preliminary reporting).
     # GBoS 2024 PHC preliminary total, as reported in Gambian media (Alkamba
     # Times / Kerr Fatou): 2,422,712 (F 51% / M 49%). Confirm against the GBoS
-    # primary report before final use — a slightly different figure also circulates.
+    # primary report before final use - a slightly different figure also circulates.
     CENSUS_2024_APPROX = 2_422_712
     popF = load_pop("female"); popM = load_pop("male")
     tot = (popF.groupby("year")["pop"].sum() + popM.groupby("year")["pop"].sum())  # thousands
