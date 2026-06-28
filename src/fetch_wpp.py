@@ -6,7 +6,7 @@ Source: the UN Population Division's official `wpp2024` R data package
 2024 series as plain tab-separated text. We pin to a specific commit SHA so the
 download is exactly reproducible, stream each (sometimes ~50 MB) file, and keep
 only The Gambia's rows (country_code 270). The full multi-country files are
-never written to disk — only the small Gambia extracts — which also keeps us
+never written to disk - only the small Gambia extracts - which also keeps us
 within tight disk limits.
 
 Run:  python src/fetch_wpp.py
@@ -34,14 +34,14 @@ OUT_DIR = ROOT / "data" / "raw" / "wpp2024"
 
 # Curated set of source files, grouped by role in the analysis.
 FILES = {
-    # Age-specific central death rates m(x,t), single age, 1950-2023 — the
+    # Age-specific central death rates m(x,t), single age, 1950-2023 - the
     # Lee-Carter fitting series.
     "mortality": ["mxF.txt", "mxM.txt", "mxB.txt"],
-    # Population by single age — exposures for the Poisson model + projection base.
+    # Population by single age - exposures for the Poisson model + projection base.
     "population": ["popF.txt", "popM.txt"],
-    # Life expectancy at birth (annual estimates) — headline + sanity check.
+    # Life expectancy at birth (annual estimates) - headline + sanity check.
     "e0_estimates": ["e0B.txt", "e0F.txt", "e0M.txt"],
-    # UN's official probabilistic e0 projection (median + 80/95% bounds) —
+    # UN's official probabilistic e0 projection (median + 80/95% bounds) -
     # the benchmark our independent forecast is compared against (RQ4).
     "e0_projection": [
         "e0Bproj.txt", "e0Fproj.txt", "e0Mproj.txt",
@@ -54,9 +54,9 @@ FILES = {
     ],
     # Sex ratio at birth.
     "srb": ["sexRatio.txt"],
-    # Net migration (estimates + medium projection) — explicit scenarios later.
+    # Net migration (estimates + medium projection) - explicit scenarios later.
     "migration": ["migration.txt", "migrationprojMed.txt"],
-    # UN projected population by single age & sex (medium) — benchmark for our
+    # UN projected population by single age & sex (medium) - benchmark for our
     # own projection.
     "population_projection": ["popFprojMed.txt", "popMprojMed.txt"],
     # Counts / crude rates for cross-checks.
