@@ -132,7 +132,7 @@ def main():
     for yr in (2050, 2074):
         r = fc[fc.year == yr].iloc[0]
         print(f"  Bayesian e0({yr}) = {r.e0_med:.2f}  [95% PI {r.e0_lo95:.2f}, {r.e0_hi95:.2f}]")
-    print("  Compare — classical LC 2074: 75.6 [73.0,77.8]; WPP Bayesian: 73.2 [63.5,83.4]")
+    print("  Compare - classical LC 2074: 75.6 [73.0,77.8]; WPP Bayesian: 73.2 [63.5,83.4]")
 
     fc.to_csv(ROOT / "data" / "processed" / "bayes_lc_e0_forecast.csv", index=False)
     print(f"\nSaved e0 forecast -> data/processed/bayes_lc_e0_forecast.csv")
@@ -164,7 +164,7 @@ def _make_figure(fc: pd.DataFrame, sex: str, rhat_max: float) -> None:
     m = m[m.year <= fc.year.max()]
     ax.plot(m.year, m.e0, color="C0", ls="--", label="WPP Bayesian (median)")
     ax.fill_between(m.year, m.e0_lo, m.e0_hi, alpha=0.12, color="C0", label="WPP 95% PI")
-    ax.set_title(f"e0 forecast — Bayesian LC vs UN WPP ({sex}); max r-hat={rhat_max:.3f}")
+    ax.set_title(f"e0 forecast - Bayesian LC vs UN WPP ({sex}); max r-hat={rhat_max:.3f}")
     ax.set_xlabel("year"); ax.set_ylabel("e0 (years)"); ax.legend(fontsize=8)
     f.tight_layout(); f.savefig(FIG / "bayes_lc_vs_wpp_e0.png", dpi=130); plt.close(f)
 
