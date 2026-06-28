@@ -196,7 +196,7 @@ def _demo() -> None:
     mx = w.mx_matrix(sex=sex, year_max=2023)
     fit = fit_lee_carter(mx)
 
-    print("=== Lee-Carter (SVD) — The Gambia, both sexes, 1950-2023 ===")
+    print("=== Lee-Carter (SVD) - The Gambia, both sexes, 1950-2023 ===")
     print(f"  1st singular component explains {fit.svd_explained*100:.1f}% of variance")
     print(f"  k_t drift = {fit.drift():.4f}/yr, innovation sd = {fit.innovation_sd():.4f}")
     print(f"  k_t: {fit.kt[0]:.2f} (1950) -> {fit.kt[-1]:.2f} (2023)")
@@ -232,7 +232,7 @@ def _make_figures(fit: LeeCarterFit, fc: pd.DataFrame) -> None:
     axs[0].plot(fit.ages, fit.ax); axs[0].set_title("$a_x$ (avg log-mortality)"); axs[0].set_xlabel("age")
     axs[1].plot(fit.ages, fit.bx); axs[1].set_title("$b_x$ (sensitivity)"); axs[1].set_xlabel("age")
     axs[2].plot(fit.years, fit.kt); axs[2].set_title("$k_t$ (mortality index)"); axs[2].set_xlabel("year")
-    f.suptitle("Lee-Carter parameters — The Gambia (both sexes, 1950-2023)")
+    f.suptitle("Lee-Carter parameters - The Gambia (both sexes, 1950-2023)")
     f.tight_layout(); f.savefig(FIG / "lc_parameters.png", dpi=130); plt.close(f)
 
     # e0 fan chart
@@ -243,7 +243,7 @@ def _make_figures(fit: LeeCarterFit, fc: pd.DataFrame) -> None:
     ax.plot(fc.year, fc.e0_med, color="C0", label="LC forecast (median)")
     ax.fill_between(fc.year, fc.e0_lo95, fc.e0_hi95, alpha=0.2, color="C0", label="95% PI")
     ax.fill_between(fc.year, fc.e0_lo80, fc.e0_hi80, alpha=0.3, color="C0")
-    ax.set_title("Life expectancy at birth — The Gambia (Lee-Carter)")
+    ax.set_title("Life expectancy at birth - The Gambia (Lee-Carter)")
     ax.set_xlabel("year"); ax.set_ylabel("e0 (years)"); ax.legend()
     f.tight_layout(); f.savefig(FIG / "lc_e0_forecast.png", dpi=130); plt.close(f)
 
