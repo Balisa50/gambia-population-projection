@@ -2,7 +2,7 @@
 Period life-table construction from age-specific central death rates.
 
 This is the deterministic demographic core of the project. Every mortality
-forecast — classical SVD Lee-Carter or Bayesian — ultimately produces a matrix
+forecast - classical SVD Lee-Carter or Bayesian - ultimately produces a matrix
 of central death rates m(x, t); this module turns each such schedule into a full
 period life table, from which life expectancy e(x) and the survivorship needed
 by the cohort-component projection are read off.
