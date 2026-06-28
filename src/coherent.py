@@ -5,7 +5,7 @@ reference group.
 A single-population Lee-Carter can drift to implausible long-run mortality and,
 as we showed, understates uncertainty relative to the UN. The coherent method
 decomposes each country's log-rates into a COMMON factor shared by the group
-plus a country-specific deviation that is forecast as a mean-reverting AR(1) —
+plus a country-specific deviation that is forecast as a mean-reverting AR(1) -
 so members cannot diverge without bound and The Gambia borrows strength from its
 neighbours' better-estimated common trend.
 
@@ -120,7 +120,7 @@ def main():
     for yr in (2050, 2074):
         r = fc[fc.year == yr].iloc[0]
         print(f"  coherent e0({yr}) = {r.e0_med:.2f}  [95% PI {r.e0_lo95:.2f}, {r.e0_hi95:.2f}]")
-    print("  Compare 2074 — single-pop LC 75.6 [73.0,77.8]; Bayesian 75.0 [73.8,76.2]; "
+    print("  Compare 2074 - single-pop LC 75.6 [73.0,77.8]; Bayesian 75.0 [73.8,76.2]; "
           "WPP 73.2 [63.5,83.4]")
     fc.to_csv(ROOT / "data" / "processed" / "coherent_e0_forecast.csv", index=False)
 
@@ -141,7 +141,7 @@ def main():
     ax.plot(sp.year, sp.e0_med, color="C2", label="single-pop LC")
     ax.fill_between(fc.year, fc.e0_lo95, fc.e0_hi95, alpha=0.22, color="C3", label="coherent 95%")
     ax.plot(fc.year, fc.e0_med, color="C3", lw=1.6, label="Li-Lee coherent")
-    ax.set_title("e0 forecast — Li-Lee coherent vs single-pop vs WPP (The Gambia)")
+    ax.set_title("e0 forecast - Li-Lee coherent vs single-pop vs WPP (The Gambia)")
     ax.set_xlabel("year"); ax.set_ylabel("e0 (years)"); ax.legend(fontsize=8)
     f.tight_layout(); f.savefig(FIG / "coherent_vs_single_vs_wpp.png", dpi=130); plt.close(f)
     print(f"\nFigure -> figures/coherent_vs_single_vs_wpp.png")
