@@ -29,7 +29,7 @@ def main():
 
     im = axs[0].imshow(logm, aspect="auto", origin="lower", cmap="magma",
                        extent=[years.min(), years.max(), ages.min(), ages.max()])
-    axs[0].set_title("log m(x,t) surface — The Gambia, 1950-2023")
+    axs[0].set_title("log m(x,t) surface - The Gambia, 1950-2023")
     axs[0].set_xlabel("year"); axs[0].set_ylabel("age")
     f.colorbar(im, ax=axs[0], label="log mortality rate")
 
